@@ -2,15 +2,15 @@ from pynput.mouse import Button, Controller
 import time
 import keyboard
 mouse = Controller()
-print("by DomatesGames from Github")
-baslamatusu = input("Otomatik tıklama hangi tuşa basıldığında başlasın? ")
-durmatusu = input("Hangi tuşa basıldığında dursun? (Başlama tuşuyla aynı olmasın.) ")
-print("Başladı, lütfen başlatmak için " + baslamatusu + " tuşuna basın. Durdurmak için de " + durmatusu + " tuşuna basın.")
+print("by DomatesGames (Github username.)")
+startkey = input("Start Autoclick on which key is pressed? ")
+stopkey = input("Stop Autoclick on which key is pressed?")
+print("Started, please press " + startkey + " for start. Please press " + stopkey + " for stop Autoclick.")
 while(True):
-    if keyboard.is_pressed(baslamatusu):
+    if keyboard.is_pressed(startkey):
         while(True):
             mouse.press(Button.left)
             mouse.release(Button.left)
             time.sleep(0.01)
-            if keyboard.is_pressed(durmatusu):
+            if keyboard.is_pressed(stopkey):
                 break
